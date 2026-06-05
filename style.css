@@ -1,0 +1,154 @@
+body 
+{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    /* font-weight: 400; */
+    font-style: normal;
+    background-color: rgb(38, 38, 38);
+}
+.intro
+{
+    text-align: center;
+    color: grey;
+    font-weight: 500;
+}
+.heading
+{
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    color: rgb(237, 237, 237);
+    font-size: xx-large;
+}
+.features
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5%;
+    margin: 10%;
+}
+.feature1,.feature2,.feature3 
+{
+    border: 2px solid grey;
+    padding: 10%;
+    border-radius: 10%;
+}
+#feature-list1
+{
+color: #6EE7B7;
+margin-bottom: 5%;
+}
+.desc
+{
+    color:  #E5E7EB;
+}
+.main
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.start-button
+{
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+/* From Uiverse.io by Randdose */ 
+.start-button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.1em 2em;
+  border: mediumspringgreen solid 0.15em;
+  border-radius: 0.25em;
+  color: mediumspringgreen;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+}
+
+.start-button p {
+  z-index: 1;
+}
+
+.start-button:hover {
+  color: #212121;
+}
+
+.start-button:active {
+  border-color: teal;
+}
+
+.start-button::after, .start-button::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: mediumspringgreen;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.start-button::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.start-button::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.start-button:hover:before {
+  transform: translateX(-1em);
+}
+
+.start-button:hover:after {
+  transform: translateX(1em);
+}
+
+.start-button:active:before,
+.start-button:active:after {
+  background: teal;
+}
+
+
+/*===========hover and all==========*/
+.feature1:hover ,.feature2:hover ,.feature3:hover 
+{
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgb(71, 70, 70);
+    transition: ease-in 0.3s;
+}
+/*=========RESPONSIVE============*/
+@media screen and (max-width: 768px) /*MOBILE DEVICES*/ 
+{
+.intro 
+{
+    text-align: center;
+}
+.features
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5%;
+    margin: 10%;
+}
+.feature1:hover ,.feature2:hover ,.feature3:hover 
+{
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgb(71, 70, 70);
+    transition: ease-in 0.3s;
+}
+.start-button{
+height: 2em;
+margin: 2em;
+text-align: center;
+}
+}
