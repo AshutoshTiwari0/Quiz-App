@@ -11,7 +11,7 @@
         <p class="intro">Select topics from below dropdown</p>
         <p class="topic-select">Select Topic</p>
 
-        <select>
+        <select id="dropdown">
             <option value="volvo">General Knowledge</option>
             <option value="saab" selected>History</option>
             <option value="mercedes">Geography</option>
@@ -22,7 +22,9 @@
             <option value="audi">Maths</option>
             <option value="audi">Computers</option>
         </select>
-        <button onclick="location.href='quiz.html'">Generate Quiz</button>
+        <!-- <button id="generate" onclick="location.href='quiz.html'">Generate Quiz</button> -->
+         <button id="generate">Generate Quiz</button>
     </section>
 </body>
+<script src="topic-selection.js"></script>
 </html>
