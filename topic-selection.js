@@ -32,7 +32,7 @@ dropdown.addEventListener("change", function() {
 *Computers 18
 */ 
 
-async function getData()
+export async function getData()
 {
     const url=`https://opentdb.com/api.php?amount=10&category=${urlValue}`;
     console.log(`url is ${url}`);
@@ -43,6 +43,10 @@ async function getData()
     }
     const result = await response.json();
     console.log(result);
+
+    //save result in local storage
+    localStorage.setItem("data",JSON.stringify(result));
+    console.log("Saved:", localStorage.getItem("data"));
     } 
     catch (error) {
     console.error(error.message);
@@ -51,9 +55,10 @@ async function getData()
 
 //on clicking generate quiz call getData()
 const button=document.getElementById('generate')
-button.addEventListener('click',function(e)
+button.addEventListener('click',async function(e)
 {
-    getData();
+
+   await getData();
 
     //go to new page 
     window.location.href = "quiz.html";
