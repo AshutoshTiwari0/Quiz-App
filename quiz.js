@@ -1,4 +1,6 @@
+let quesNo=0;
 // import {getData} from './topic-selection.js';
+
 let nextbutton=document.getElementById("next");
 
 
@@ -12,19 +14,35 @@ nextbutton.addEventListener('click', ()=>{
 quesNumber.textContent=parseInt(quesNumber.textContent,10)+1;
 });
 
-let data = JSON.parse(localStorage.getItem("data"));
-// console.log(data);
 
-console.log(data['results']);
+//getting data stored from local storage
+const data = JSON.parse(localStorage.getItem("data"));
+console.log(data.results);
 
-//getting questions 
-// console.log(data.results[4].question);
+//getting the questions
+let total_questions=10;
+for(let i=0;i<total_questions;i++)
+{
+console.log(`question number ${i+1} ${data.results[i].question}`);
+console.log(`options are ${data.results[i].correct_answer}, ${data.results[i].incorrect_answers} `);
+}
 
-//getting options 
-// const options=data.results[4].incorrect_answers + data.results[4].correct_answer;
+let ques=document.querySelector('.question')
+let next=document.querySelector('#next');
+//rendering the question 1
+ques.innerHTML=data.results[0].question;
 
-// //trim everything from options 
-// const finaloptions = options.replace(/[^a-zA-Z0-9]/g, "");
+next.addEventListener('click', ()=>{
+ques.innerHTML=data.results[quesNo].question; //render quesNo=1
+quesNo++; //increment it after every click of next question
 
-// console.log(options);
+//allow only 10 clicks
+if(quesNo==total_questions)
+{
+    alert("quiz ended");
+    // quesNumber.textContent=10; //after last click render it was turning to 11 so forcing it to 10
+    document.documentElement.innerHTML = "quiz ended";
+}
+}
+);
 
